@@ -1,5 +1,5 @@
 
-原文：<a href="seisman.info.posts/_posts/2013-07-11-install-texlive-under-linux.md"></a>
+<a href="seisman.info.posts/_posts/2013-07-11-install-texlive-under-linux.md">原文</a><br />
 本文将介绍如何在 Linux 下安装 TeXLive 2017。
 
 <!--more-->
