@@ -97,3 +97,7 @@ TeXLive 2017 在使用 xeLaTeX 处理中文时，有自己的默认字体。大�
 
 如果想要使用 Windows 字体，可以将字体文件复制到 `~/.fonts` 目录下，并在 tex 源码中
 指定字体选项即可。
+或者：
+sudo apt-get install latex-cjk-all 
+
+
