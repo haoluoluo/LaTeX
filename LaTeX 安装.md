@@ -104,14 +104,14 @@ sudo apt-get install latex-cjk-all
 原文来自：<a href="https://tex.stackexchange.com/questions/95483/how-to-remove-everything-related-to-tex-live-for-fresh-install-on-ubuntu">stackexchange</a>
 
 Try the following commands, one after another. If you progress, respective folders may already be deleted:
-\begin{enumerate}
-\item sudo apt-get purge texlive*
-\item rm -rf /usr/local/texlive/* and rm -rf ~/.texlive*
-\item rm -rf /usr/local/share/texmf
-\item rm -rf /var/lib/texmf
-\item rm -rf /etc/texmf
-\item sudo apt-get remove tex-common --purge
-\item rm -rf ~/.texlive
-\item find -L /usr/local/bin/ -lname /usr/local/texlive/*/bin/* | xargs rm
-\end{enumerate}
+<ol>
+<li> sudo apt-get purge texlive*</li>
+<li> rm -rf /usr/local/texlive/* and rm -rf ~/.texlive*</li>
+<li> rm -rf /usr/local/share/texmf</li>
+<li> rm -rf /var/lib/texmf</li>
+<li> rm -rf /etc/texmf</li>
+<li> sudo apt-get remove tex-common --purge</li>
+<li> rm -rf ~/.texlive</li>
+<li> find -L /usr/local/bin/ -lname /usr/local/texlive/*/bin/* | xargs rm</li>
+<ol>
 This finds all the files in /usr/local/bin which point to a location within /usr/local/texlive/*/bin/* and removes them; because we’ve already deleted all of /usr/local/texlive, these are dead links. To see which files are being deleted, replace xargs rm with xargs -t rm (or tee off to a log file, or whatever).
