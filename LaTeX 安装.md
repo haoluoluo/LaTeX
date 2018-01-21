@@ -1,5 +1,5 @@
 
-原文来自:<a href="seisman.info.posts/_posts/2013-07-11-install-texlive-under-linux.md">seisman</a><br />
+原文来自:<a href="https://github.com/seisman/seisman.info.posts/blob/master/_posts/2013-07-11-install-texlive-under-linux.md">seisman</a><br />
 本文将介绍如何在 Linux 下安装 TeXLive 2017。
 
 <!--more-->
@@ -100,4 +100,17 @@ TeXLive 2017 在使用 xeLaTeX 处理中文时，有自己的默认字体。大�
 或者：
 sudo apt-get install latex-cjk-all 
 
+## 卸载texlive
+原文来自：<a href="https://tex.stackexchange.com/questions/95483/how-to-remove-everything-related-to-tex-live-for-fresh-install-on-ubuntu">stackexchange</a>
+Try the following commands, one after another. If you progress, respective folders may already be deleted:
 
+sudo apt-get purge texlive*
+rm -rf /usr/local/texlive/* and rm -rf ~/.texlive*
+rm -rf /usr/local/share/texmf
+rm -rf /var/lib/texmf
+rm -rf /etc/texmf
+sudo apt-get remove tex-common --purge
+rm -rf ~/.texlive
+find -L /usr/local/bin/ -lname /usr/local/texlive/*/bin/* | xargs rm
+
+This finds all the files in /usr/local/bin which point to a location within /usr/local/texlive/*/bin/* and removes them; because we’ve already deleted all of /usr/local/texlive, these are dead links. To see which files are being deleted, replace xargs rm with xargs -t rm (or tee off to a log file, or whatever).
