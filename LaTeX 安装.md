@@ -104,6 +104,7 @@ sudo apt-get install latex-cjk-all
 原文来自：<a href="https://tex.stackexchange.com/questions/95483/how-to-remove-everything-related-to-tex-live-for-fresh-install-on-ubuntu">stackexchange</a>
 
 Try the following commands, one after another. If you progress, respective folders may already be deleted:
+```bash
 <ol>
 <li> sudo apt-get purge texlive*</li>
 <li> rm -rf /usr/local/texlive/* and rm -rf ~/.texlive*</li>
@@ -113,5 +114,6 @@ Try the following commands, one after another. If you progress, respective folde
 <li> sudo apt-get remove tex-common --purge</li>
 <li> rm -rf ~/.texlive</li>
 <li> find -L /usr/local/bin/ -lname /usr/local/texlive/*/bin/* | xargs rm</li>
+```bash
 <ol>
 This finds all the files in /usr/local/bin which point to a location within /usr/local/texlive/*/bin/* and removes them; because we’ve already deleted all of /usr/local/texlive, these are dead links. To see which files are being deleted, replace xargs rm with xargs -t rm (or tee off to a log file, or whatever).
