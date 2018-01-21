@@ -106,12 +106,12 @@ sudo apt-get install latex-cjk-all
 Try the following commands, one after another. If you progress, respective folders may already be deleted:
 ```bash
 1. sudo apt-get purge texlive*
-rm -rf /usr/local/texlive/* and rm -rf ~/.texlive*
-rm -rf /usr/local/share/texmf
-rm -rf /var/lib/texmf
-rm -rf /etc/texmf
-sudo apt-get remove tex-common --purge
-rm -rf ~/.texlive
-find -L /usr/local/bin/ -lname /usr/local/texlive/*/bin/* | xargs rm
+2. rm -rf /usr/local/texlive/* and rm -rf ~/.texlive*
+3. rm -rf /usr/local/share/texmf
+4. rm -rf /var/lib/texmf
+5. rm -rf /etc/texmf
+6. sudo apt-get remove tex-common --purge
+7. rm -rf ~/.texlive
+8. find -L /usr/local/bin/ -lname /usr/local/texlive/*/bin/* | xargs rm
 ```bash
 This finds all the files in /usr/local/bin which point to a location within /usr/local/texlive/*/bin/* and removes them; because we’ve already deleted all of /usr/local/texlive, these are dead links. To see which files are being deleted, replace xargs rm with xargs -t rm (or tee off to a log file, or whatever).
