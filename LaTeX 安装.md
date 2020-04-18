@@ -124,7 +124,7 @@ This finds all the files in /usr/local/bin which point to a location within /usr
 Ubuntu 安装源已经打包了 TEX Live。对于大部分的用户，源里面的 TEX Live 安装简单，稳定性通常也足够，所以可以直接安装[1]。为了避免宏包依赖问题，推荐安装完整版（如果磁盘空间足够）：
 `` bash
 sudo apt-get install texlive-full
-
+`` 
 然而，源里面的 TEX Live 相比于「纯净版」，也有一些缺点：
 
 相比于几乎每日都有更新的 CTAN，源里面的 TEX Live 更新较慢，频率接近每月一次，对于宏包开发者和有特殊需要的 TEX 用户是远远不够的
@@ -140,14 +140,17 @@ sudo apt-get install texlive-full
 `` bash
 wget https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/install-tl-unx.tar.gz
 tar -xzf install-tl-unx.tar.gz
-cd install-tl-2018*
+cd install-tl-20*
+`` 
 安装 TEX Live
 命令行中执行
 `` bash
 sudo ./install-tl -repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/
+`` 
 注意需要管理员权限。如有必要，可能还需安装 perl-tl 和 perl-doc：
-
+`` bash
 sudo apt-get install perl-tk perl-doc
+`` 
 等待片刻后会进入选项菜单，根据需要酌情选取。也可以事先写好配置文件 texlive.profile[2]。
 
 没有特殊需要的话，collection 可以不必全部安装，尤其是很多小语种。不过后果是之后可能会缺包。不愿意之后手动安装，并且空间足够、网速足够，也可以全部安装。注意 TEX Live 完全安装后大约要占 6 GB 空间，安装前请务必做好准备。中途断网很可能导致安装失败。
@@ -158,22 +161,23 @@ GUI 模式
 开启 -gui 选项后可以在图形界面安装（当然前提是要有 GUI 支持）：
 `` bash
 sudo ./install-tl -gui -repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/
+`` 
 如下图所示：
-
+`` bash
 texlive-gui
+`` 
 注意此时终端不可以关闭。
 
-使用 ISO 安装
-TODO
 
 环境变量设置
 此时 TEX Live 虽已安装，但其路径对于 Linux 来说仍是不可识别的。所以需要更改环境变量。
 
 打开 ~/.bashrc，在最后添加
 `` bash
-export PATH=/usr/local/texlive/2018/bin/x86_64-linux:$PATH
-export MANPATH=/usr/local/texlive/2018/texmf-dist/doc/man:$MANPATH
-export INFOPATH=/usr/local/texlive/2018/texmf-dist/doc/info:$INFOPATH
+export PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH
+export MANPATH=/usr/local/texlive/2020/texmf-dist/doc/man:$MANPATH
+export INFOPATH=/usr/local/texlive/2020/texmf-dist/doc/info:$INFOPATH
+`` 
 还需保证开启 sudo 模式后路径仍然可用。命令行中执行
 
 sudo visudo
@@ -202,8 +206,9 @@ sudo fc-cache -fv
 刷新字体数据库。
 
 安装「dummy package」
+`` bash
 TODO
-
+`` 
 检查
 到此整个 TEX Live 2018 就已经安装完毕。可以做下面的一些检查：
 
